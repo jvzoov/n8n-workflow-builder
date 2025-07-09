@@ -210,9 +210,6 @@
 
 ## test_plan:
   current_focus:
-    - "Core AI Integration with Gemini"
-    - "Natural Language to n8n Workflow Generation"
-    - "Chat Interface API"
     - "Chat Interface UI"
   stuck_tasks: []
   test_all: false
@@ -221,3 +218,5 @@
 ## agent_communication:
   - agent: "main"
     message: "Initial MVP implementation complete. Core AI integration with Gemini is ready. Chat interface and workflow generation are implemented. Need to test backend APIs first, then frontend UI integration."
+  - agent: "testing"
+    message: "Completed comprehensive testing of all backend APIs. Created backend_test.py with 8 test cases covering all required functionality. All backend components are working correctly. The Gemini AI integration, workflow generation, chat interface, and database models are all functioning as expected. Frontend testing can now proceed."
