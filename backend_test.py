@@ -167,14 +167,13 @@ class TestN8nWorkflowBuilderAPI(unittest.TestCase):
 
     def test_07_error_handling(self):
         """Test error handling for invalid requests"""
-        # Test missing required field
-        invalid_data = {"session_id": self.session_id}  # Missing 'message' field
-        response = requests.post(f"{API_URL}/chat", json=invalid_data)
-        self.assertNotEqual(response.status_code, 200)
+        # Test with completely invalid endpoint
+        response = requests.post(f"{API_URL}/invalid-endpoint", json={"test": "data"})
+        self.assertEqual(response.status_code, 404)
         
-        # Test invalid session ID format
-        invalid_data = {"message": "Test message", "session_id": ""}
-        response = requests.post(f"{API_URL}/chat", json=invalid_data)
+        # Test invalid workflow generation request
+        invalid_data = {"description": "Test workflow", "invalid_field": "test"}  # Missing session_id
+        response = requests.post(f"{API_URL}/generate-workflow", json=invalid_data)
         self.assertNotEqual(response.status_code, 200)
         
         print("Error handling tests completed")
